@@ -175,7 +175,7 @@ ARG SERVER=openswoole
 
 RUN if [ ${INSTALL_SWOOLE} = true ]; then \
       apt-get install -yqq --no-install-recommends --show-progress libc-ares-dev \
-      && pecl -q install -o -f -D 'enable-openssl="yes" enable-http2="yes" enable-swoole-curl="yes" enable-mysqlnd="yes" enable-cares="yes"' ${SERVER} \
+      && pecl -q install -o -f -D 'enable-sockets="no" enable-openssl="yes" enable-http2="yes" enable-mysqlnd="yes" enable-swoole-json="no" enable-swoole-curl="yes" enable-cares="yes" with-postgres="yes"' ${SERVER} \
       && docker-php-ext-enable ${SERVER}; \
     fi
 
